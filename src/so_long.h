@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 13:31:39 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/03 14:23:12 by akovtune         ###   ########.fr       */
+/*   Created: 2025/01/03 13:31:45 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/03 14:21:30 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-int	main(void)
-{
-	t_client	x_client;
+# include "mlx.h"
 
-	x_client = mlx_init();
-	mlx_new_window(x_client, 1000, 1000, "so_long");
-	mlx_loop(x_client);
-}
+typedef void	*t_client;
+
+#endif
