@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_char_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 13:31:39 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/08 17:51:57 by akovtune         ###   ########.fr       */
+/*   Created: 2024/10/31 14:00:56 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/08 16:42:46 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map_parser.h"
+#include "ft_printf.h"
 
-int	main(void)
+int	print_char_bonus(va_list args, t_options *opt)
 {
-	parse_map("map.ber");
+	char	c;
+
+	c = va_arg(args, int);
+	if (opt->width)
+	{
+		if (opt->left_a)
+		{
+			if (write(1, &c, 1) == -1
+				|| print_char_n_times(' ', opt->width - 1) == -1)
+				return (-1);
+		}
+		else if (print_char_n_times(' ', opt->width - 1) == -1
+			|| write(1, &c, 1) == -1)
+			return (-1);
+		return (opt->width);
+	}
+	return (write(1, &c, 1));
 }
