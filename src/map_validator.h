@@ -2,6 +2,7 @@
 # define MAP_VALIDATOR_H
 
 # include <stdbool.h>
+# include <stdlib.h>
 
 typedef struct map_data
 {
@@ -14,5 +15,7 @@ typedef struct map_data
 	bool	is_surrouded_by_walls;
 	bool	has_a_valid_path;
 }			t_map_data;
+
+bool		is_valid_map(char **map);
 
 #endif
