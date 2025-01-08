@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 13:31:45 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/08 14:19:53 by akovtune         ###   ########.fr       */
+/*   Created: 2025/01/03 13:31:39 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/08 14:19:46 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include "events_handler.h"
+int	so_long(void)
+{
+	t_data	data;
 
-int	so_long(void);
-
-#endif
+	data.display = mlx_init();
+	if (!data.display)
+		return (1);
+	data.window = mlx_new_window(data.display, 1000, 1000, TITLE);
+	if (!data.window)
+	{
+		mlx_destroy_display(data.display);
+		free(data.display);
+		return (1);
+	}
+	mlx_hook(data.window, KeyPress, KeyPressMask, handle_key_pressed, &data);
+	mlx_loop(data.display);
+	return (0);
+}
