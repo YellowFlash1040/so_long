@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   file.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/08 17:37:24 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/08 18:11:34 by akovtune         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "file.h"
 #include <stdio.h>
 
@@ -45,8 +57,6 @@ char	**read_all_lines(char *filepath)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	printf("lines = %p\n", lines);
-	printf("lines = %d\n", lines_count);
 	return (move_from_list_to_array(lines, lines_count));
 }
 
