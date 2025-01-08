@@ -6,17 +6,13 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:31:39 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/03 14:23:12 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:06:31 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "map_parser.h"
 
 int	main(void)
 {
-	t_client	x_client;
-
-	x_client = mlx_init();
-	mlx_new_window(x_client, 1000, 1000, "so_long");
-	mlx_loop(x_client);
+	parse_map("map.ber");
 }
