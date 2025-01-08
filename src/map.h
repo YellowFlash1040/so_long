@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 13:31:39 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/08 17:47:36 by akovtune         ###   ########.fr       */
+/*   Created: 2025/01/08 15:08:56 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/08 15:14:16 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map_parser.h"
+#ifndef MAP_H
+# define MAP_H
 
-int	main(void)
+typedef struct map
 {
-	// parse_map("map.ber");
-	ft_printf("hello world!\n");
-}
+	char	**rows;
+	int		rows_count;
+	int		columns_count;
+	int		collectibles_count;
+}			t_map;
+
+#endif
