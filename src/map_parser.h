@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.h                                             :+:      :+:    :+:   */
+/*   map_parser.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 17:35:29 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 14:32:39 by akovtune         ###   ########.fr       */
+/*   Created: 2025/01/08 18:00:27 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/09 14:01:33 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
+#ifndef MAP_PARSER_H
+# define MAP_PARSER_H
 
-# include "ft_string.h"
-# include "get_next_line.h"
-# include "list.h"
-# include <fcntl.h>  // for open()
-# include <stdio.h>  // for perror()
-# include <stdlib.h> // for malloc()
+# include "file.h"
+# include "ft_printf.h"
+# include "map.h"
+# include <errno.h>
+# include <fcntl.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-char	*get_file_extension(char *filepath);
-char	**read_all_lines(char *filepath, int *lines_count);
-bool	file_exists(const char *filepath);
+t_map	*parse_map(char *filepath);
 
 #endif

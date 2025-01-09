@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.h                                             :+:      :+:    :+:   */
+/*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 17:35:29 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 14:32:39 by akovtune         ###   ########.fr       */
+/*   Created: 2025/01/08 15:08:56 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/09 12:52:33 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
+#ifndef MAP_H
+# define MAP_H
 
-# include "ft_string.h"
-# include "get_next_line.h"
-# include "list.h"
-# include <fcntl.h>  // for open()
-# include <stdio.h>  // for perror()
-# include <stdlib.h> // for malloc()
+# include <stdlib.h>
 
-char	*get_file_extension(char *filepath);
-char	**read_all_lines(char *filepath, int *lines_count);
-bool	file_exists(const char *filepath);
+typedef struct map
+{
+	char	**rows;
+	int		rows_count;
+	int		columns_count;
+	int		collectibles_count;
+}			t_map;
+
+t_map		*init_map(void);
+void		free_map(t_map **map);
 
 #endif

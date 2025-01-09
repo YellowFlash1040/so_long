@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.h                                             :+:      :+:    :+:   */
+/*   ft_string.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 17:35:29 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 14:32:39 by akovtune         ###   ########.fr       */
+/*   Created: 2025/01/08 17:35:18 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/09 13:55:04 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
+#ifndef FT_STRING_H
+# define FT_STRING_H
 
-# include "ft_string.h"
-# include "get_next_line.h"
-# include "list.h"
-# include <fcntl.h>  // for open()
-# include <stdio.h>  // for perror()
-# include <stdlib.h> // for malloc()
+# include <stdbool.h>
+# include <stdlib.h>
 
-char	*get_file_extension(char *filepath);
-char	**read_all_lines(char *filepath, int *lines_count);
-bool	file_exists(const char *filepath);
+int		ft_strlen(char *str);
+int		index_of(char c, char *str);
+int		last_index_of(char c, char *str);
+bool	ft_strcmp(char *s1, char *s2);
+char	*ft_strdup(char *str);
 
 #endif

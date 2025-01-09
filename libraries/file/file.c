@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   file.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/08 17:37:24 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/09 12:44:25 by akovtune         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "file.h"
-#include <stdio.h>
 
 static char	**move_from_list_to_array(t_list *lines, int lines_count);
 
@@ -24,30 +35,30 @@ char	*get_file_extension(char *filepath)
 	return (extension);
 }
 
-char	**read_all_lines(char *filepath)
+char	**read_all_lines(char *filepath, int *lines_count)
 {
-	int		lines_count;
 	t_list	*lines;
 	char	*line;
 	int		fd;
 
 	fd = open(filepath, O_RDONLY);
 	if (fd == -1)
+	{
+		perror("Error opening file");
 		return (NULL);
+	}
 	lines = NULL;
-	lines_count = 0;
+	*lines_count = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
 		if (!add_node(line, &lines))
 			return (clear_list(&lines), NULL);
-		lines_count++;
+		(*lines_count)++;
 		line = get_next_line(fd);
 	}
 	close(fd);
-	printf("lines = %p\n", lines);
-	printf("lines = %d\n", lines_count);
-	return (move_from_list_to_array(lines, lines_count));
+	return (move_from_list_to_array(lines, *lines_count));
 }
 
 static char	**move_from_list_to_array(t_list *lines, int lines_count)
@@ -78,10 +89,11 @@ bool	file_exists(const char *filepath)
 	int	fd;
 
 	fd = open(filepath, O_RDONLY);
-	if (fd != -1)
+	if (fd == -1)
 	{
-		close(fd);
-		return (true);
+		perror("Error opening file");
+		return (false);
 	}
-	return (false);
+	close(fd);
+	return (true);
 }

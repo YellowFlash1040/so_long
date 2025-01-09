@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_char_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 13:31:39 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 15:28:24 by akovtune         ###   ########.fr       */
+/*   Created: 2024/10/31 14:00:56 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/08 16:42:46 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
-#include "map_validator.h"
-#include "map_parser.h"
-
-int	main(void)
+int	print_char_bonus(va_list args, t_options *opt)
 {
-	char** map;
+	char	c;
 
-	map = NULL;
-	is_valid_map(map);
-	t_map	*map;
-
-	map = parse_map("map.ber");
-	if (!map)
-		return (1);
-	ft_printf("rows: %d\n", map->rows_count);
-	ft_printf("columns: %d\n", map->columns_count);
-	ft_printf("collectibles: %d\n", map->collectibles_count);
-	free_map(&map);
-	return (0);
+	c = va_arg(args, int);
+	if (opt->width)
+	{
+		if (opt->left_a)
+		{
+			if (write(1, &c, 1) == -1
+				|| print_char_n_times(' ', opt->width - 1) == -1)
+				return (-1);
+		}
+		else if (print_char_n_times(' ', opt->width - 1) == -1
+			|| write(1, &c, 1) == -1)
+			return (-1);
+		return (opt->width);
+	}
+	return (write(1, &c, 1));
 }
