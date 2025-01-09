@@ -6,14 +6,14 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:51:54 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/08 17:36:24 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/09 14:58:24 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../string/string.h"
+# include "ft_string.h"
 # include <stdarg.h>
 # include <stdbool.h>
 # include <unistd.h>
@@ -27,12 +27,12 @@ typedef unsigned int	t_hex;
 // 1 - add +
 typedef struct options
 {
-	bool	left_a; //left aligned
+	bool	left_a; // left aligned
 	bool	zero_flag;
 	size_t	width;
 	int		length;
-	int		p_or_s; //plus or space: for the '+' ' ' flags
-	bool	prefix; //for the '#' flag
+	int		p_or_s; // plus or space: for the '+' ' ' flags
+	bool	prefix; // for the '#' flag
 	t_dtype	type;
 }	t_options;
 

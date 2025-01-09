@@ -3,13 +3,13 @@ CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
 
 # Output Files
-NAME		:= string.a
+NAME		:= ft_string.a
 
 # Directories
 OBJ_DIR		:= obj
 
 # Files
-FILES		:= string.c
+FILES		:= ft_string.c
 
 # Sources, Objects
 OBJ     	:= $(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
