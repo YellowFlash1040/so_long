@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:34:29 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 12:59:14 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:14:57 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_map	*parse_map(char *filepath)
 	char	**lines;
 	int		lines_count;
 	t_map	*map;
+	int		i;
 
 	if (!has_valid_extension(filepath))
 		return (NULL);
@@ -29,6 +30,9 @@ t_map	*parse_map(char *filepath)
 	map = init_map();
 	if (!map)
 		return (free_lines(&lines), NULL);
+	i = -1;
+	while (++i < lines_count)
+		replace(lines[i], '\n', '\0');
 	map->rows = lines;
 	map->rows_count = lines_count;
 	return (map);
@@ -40,12 +44,12 @@ static bool	has_valid_extension(char *filepath)
 	bool	is_valid;
 
 	extension = get_file_extension(filepath);
-	is_valid = ft_strcmp(extension, ".ber");
+	is_valid = ft_strcmp(extension, MAP_EXTENSION);
 	free(extension);
 	if (is_valid)
 		return (true);
 	ft_printf("\033[31mError\n");
-	ft_printf("The map file must have a .ber extension.\033[0m\n");
+	ft_printf("%s\033[0m\n", MAP_EXTENSION_ERROR);
 	return (NULL);
 }
 

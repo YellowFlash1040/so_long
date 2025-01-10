@@ -6,12 +6,16 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 18:00:27 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 14:01:33 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/10 13:44:12 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAP_PARSER_H
 # define MAP_PARSER_H
+
+# define MAP_EXTENSION ".ber"
+
+# define MAP_EXTENSION_ERROR "The map file must have a .ber extension. ❌"
 
 # include "file.h"
 # include "ft_printf.h"
