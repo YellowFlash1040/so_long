@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:58:34 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 14:58:35 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:10:38 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_map	*init_map(void)
 	map->rows = NULL;
 	map->rows_count = -1;
 	map->columns_count = -1;
-	map->collectibles_count = -1;
+	map->collectibles_count = 0;
 	return (map);
 }
 
