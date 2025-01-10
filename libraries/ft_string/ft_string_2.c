@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string.h                                        :+:      :+:    :+:   */
+/*   ft_string_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 17:35:18 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 16:35:16 by akovtune         ###   ########.fr       */
+/*   Created: 2025/01/09 16:35:08 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/09 16:35:09 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRING_H
-# define FT_STRING_H
+void	replace(char *str, char old, char new)
+{
+	int	i;
 
-# include <stdbool.h>
-# include <stdlib.h>
-
-int		ft_strlen(char *str);
-int		index_of(char c, char *str);
-int		last_index_of(char c, char *str);
-bool	ft_strcmp(char *s1, char *s2);
-char	*ft_strdup(char *str);
-void	replace(char *str, char old, char new);
-
-#endif
+	i = -1;
+	while (str[++i])
+		if (str[i] == old)
+			str[i] = new;
+}
