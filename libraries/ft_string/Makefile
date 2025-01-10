@@ -9,7 +9,8 @@ NAME		:= ft_string.a
 OBJ_DIR		:= obj
 
 # Files
-FILES		:= ft_string.c
+FILES		:= ft_string.c \
+				ft_string_2.c
 
 # Sources, Objects
 OBJ     	:= $(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
