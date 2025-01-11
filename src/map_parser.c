@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:34:29 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 17:14:57 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:58:06 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_map	*parse_map(char *filepath)
 		replace(lines[i], '\n', '\0');
 	map->rows = lines;
 	map->rows_count = lines_count;
+	map->columns_count = ft_strlen(map->rows[0]);
 	return (map);
 }
 
