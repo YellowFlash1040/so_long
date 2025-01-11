@@ -6,67 +6,86 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:31:39 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/10 13:44:49 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/11 16:24:55 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_parser.h"
 #include "map_validator.h"
+#include "path_checker.h"
 
-bool	check_map(char *filepath);
-void	print_map(t_map *map);
+void			print_map(t_map *map);
+void			print_success(char *str);
+void			print_failure(char *str);
+int				find_collectibles_count(t_map *map);
+t_coordinates	find_player_position(t_map *map);
 
 int	main(void)
 {
-	int		maps_amount;
-	char	*maps[] = {"maps/map1.ber", "maps/map2.ber", "maps/map3.ber",
-			"maps/map4.ber", "maps/map5.ber", "maps/map6.ber", "maps/map7.ber",
-			"maps/map8.ber", "maps/map9.ber", "maps/map10.ber",
-			"maps/map11.ber", "maps/map12.ber", "Makefile", "mlx.tgz",
-			"src/main.c"};
+	t_map			*map;
+	int				result;
+	t_coordinates	player_position;
 
-	maps_amount = sizeof(maps) / sizeof(char *);
-	for (int i = 0; i < maps_amount; i++)
-	{
-		if (ft_strcmp(maps[i], "maps/map9.ber"))
-			check_map(maps[i]);
-		else
-			check_map(maps[i]);
-		ft_printf("\n");
-	}
-	return (0);
-}
-
-bool	check_map(char *filepath)
-{
-	t_map	*map;
-	int		is_valid;
-
-	map = parse_map(filepath);
-	if (!map)
-		return (1);
-	print_map(map);
-	is_valid = is_valid_map(map);
+	map = parse_map("maps/path_check/map5.ber");
+	map->collectibles_count = find_collectibles_count(map);
+	player_position = find_player_position(map);
+	result = has_valid_path(map, player_position);
 	free_map(&map);
-	if (is_valid == false)
-	{
-		ft_printf("\033[31mError\nThe map is invalid ❌\n\033[0m");
-		return (1);
-	}
-	else if (is_valid == -1)
-	{
-		ft_printf("Malloc failed\n");
-		return (1);
-	}
-	ft_printf("\033[0;32mMap is valid ✅\n\033[0m");
+	if (result == -1)
+		print_failure("Something went wrong");
+	else if (result == 1)
+		print_success("There is a valid path");
+	else
+		print_failure("There is NO valid path");
 	return (0);
 }
 
-void	print_map(t_map *map)
+void	print_success(char *str)
 {
-	int	i;
+	ft_printf("\033[0;32m%s ✅\n\033[0m", str);
+}
 
-	i = -1;
-	while (++i < map->rows_count)
-		ft_printf("%s\n", map->rows[i]);
+void	print_failure(char *str)
+{
+	ft_printf("\033[31mError\n%s ❌\n\033[0m", str);
+}
+
+int	find_collectibles_count(t_map *map)
+{
+	int	collectibles_count;
+	int	x;
+	int	y;
+
+	collectibles_count = 0;
+	y = -1;
+	while (++y < map->rows_count)
+	{
+		x = -1;
+		while (++x < map->columns_count)
+			if (map->rows[y][x] == 'C')
+				collectibles_count++;
+	}
+	return (collectibles_count);
+}
+
+t_coordinates	find_player_position(t_map *map)
+{
+	t_coordinates	player_position;
+	int				x;
+	int				y;
+
+	player_position.x = -1;
+	player_position.y = -1;
+	y = -1;
+	while (++y < map->rows_count)
+	{
+		x = index_of('P', map->rows[y]);
+		if (x != -1)
+		{
+			player_position.x = x;
+			player_position.y = y;
+			return (player_position);
+		}
+	}
+	return (player_position);
 }
