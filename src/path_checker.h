@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:25:59 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/10 18:26:00 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/11 15:58:57 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ typedef struct maze
 
 typedef struct neighbors
 {
-	t_cell			top;
-	t_cell			bottom;
-	t_cell			left;
-	t_cell			right;
+	int				top;
+	int				bottom;
+	int				left;
+	int				right;
 }					t_neighbors;
 
 typedef struct coordinates
@@ -51,6 +51,14 @@ typedef struct coordinates
 	int				y;
 }					t_coordinates;
 
-int					has_valid_path(t_map *map);
+typedef enum e_direction
+{
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
+}					t_direction;
+
+int					has_valid_path(t_map *map, t_coordinates player_position);
 
 #endif
