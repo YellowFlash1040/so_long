@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_toolkit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/12 15:15:04 by akovtune          #+#    #+#             */
+/*   Updated: 2025/01/12 15:17:42 by akovtune         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "map_toolkit.h"
 
 static void	free_data(t_map *map, t_map_data *map_data,
 				t_map_errors *map_errors);
-static void	print_success(char *str);
 static void	print_failure(char *str);
+// static void	print_success(char *str);
 
 int	process_map(char *filepath)
 {
@@ -29,11 +41,11 @@ int	process_map(char *filepath)
 		has_errors = true;
 		print_failure("The map doesn't have a valid path");
 	}
-	if (!has_errors)
-		print_success("The map is valid");
 	free_data(map, map_data, map_errors);
 	return (0);
 }
+// if (!has_errors)
+// 	print_success("The map is valid");
 
 static void	free_data(t_map *map, t_map_data *map_data,
 		t_map_errors *map_errors)
@@ -46,10 +58,10 @@ static void	free_data(t_map *map, t_map_data *map_data,
 		free(map_errors);
 }
 
-static void	print_success(char *str)
-{
-	ft_printf("\033[0;32m%s ✅\n\033[0m", str);
-}
+// static void	print_success(char *str)
+// {
+// 	ft_printf("\033[0;32m%s ✅\n\033[0m", str);
+// }
 
 static void	print_failure(char *str)
 {
