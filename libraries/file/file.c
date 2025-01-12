@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:37:24 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 12:44:25 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/12 13:56:41 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ char	**read_all_lines(char *filepath, int *lines_count)
 
 	fd = open(filepath, O_RDONLY);
 	if (fd == -1)
-	{
-		perror("Error opening file");
 		return (NULL);
-	}
 	lines = NULL;
 	*lines_count = 0;
 	line = get_next_line(fd);
