@@ -9,6 +9,7 @@ NAME					:= so_long
 
 # Directories
 SRC_DIR					:= src
+SRC_MAP_DIR				:= $(SRC_DIR)/map
 OBJ_DIR					:= obj
 LIBS_DIR				:= libraries
 MLX_DIR 				:= mlx
@@ -22,16 +23,18 @@ LIB_STRING_DIR			:= $(LIBS_DIR)/ft_string
 MLX_ORIG_DIR_NAME		:= minilibx-linux
 
 # Includes
-INCLUDES				:= -I$(MLX_DIR) \
+INCLUDES				:= -I$(SRC_DIR) \
+							-I$(SRC_MAP_DIR) \
+							-I$(MLX_DIR) \
 							-I$(LIB_FILE_DIR) \
 							-I$(LIB_FT_PRINTF_DIR) \
 							-I$(LIB_GET_NEXT_LINE_DIR) \
 							-I$(LIB_LIST_DIR) \
-							-I$(LIB_STRING_DIR)
+							-I$(LIB_STRING_DIR) \
 
 # Files
 MLX_ARCHIVE				:= mlx.tgz
-FILES					:= $(notdir $(wildcard $(SRC_DIR)/*.c))
+FILES					:= $(notdir $(wildcard $(SRC_DIR)/*.c)) $(notdir $(wildcard $(SRC_MAP_DIR)/*.c))
 
 # Objects, Libraries
 OBJ						:= $(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
@@ -64,6 +67,10 @@ $(NAME): $(OBJ) $(LIBRARIES)
 
 #Compile Object Files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_MAP_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
