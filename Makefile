@@ -41,7 +41,26 @@ INCLUDES				:= -I$(SRC_DIR) \
 
 # Files
 MLX_ARCHIVE				:= mlx.tgz
-FILES					:= $(notdir $(wildcard $(SRC_DIR)/*.c)) $(notdir $(wildcard $(SRC_MAP_DIR)/*.c)) $(notdir $(wildcard $(SRC_GUI_DIR)/*.c))
+# FILES					:= $(notdir $(wildcard $(SRC_DIR)/*.c)) $(notdir $(wildcard $(SRC_MAP_DIR)/*.c)) $(notdir $(wildcard $(SRC_GUI_DIR)/*.c))
+FILES					:= map.c \
+							map_analyzer.c \
+							map_data.c \
+							map_err_collector.c \
+							map_parser.c \
+							path_checker.c \
+							path_checker_2.c \
+							path_checker_3.c \
+							map_errors.c \
+							map_toolkit.c \
+							assets.c \
+							client.c \
+							data.c \
+							events.c \
+							game.c \
+							game_data.c \
+							graphics.c \
+							movements.c \
+							main.c
 
 # Objects, Libraries
 OBJ						:= $(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
