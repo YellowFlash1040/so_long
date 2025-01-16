@@ -71,7 +71,7 @@ all: $(NAME)
 
 # Build the Executable
 $(NAME): $(OBJ) $(LIBRARIES)
-	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJ) $(LIBRARIES) -o $@
+	@$(CC) $(CFLAGS) $(MLX_FLAGS) $^ -o $@
 	@echo "$(GREEN)Compiled $@ successfully!$(RESET)"
 
 #Compile Object Files
