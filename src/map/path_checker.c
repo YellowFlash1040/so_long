@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:25:56 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/12 13:38:50 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:28:22 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ static t_neighbors	calculate_neighbors(t_coordinates cur_pos,
 	if (x < maze_d.width - 1)
 		neighbors.right = i + 1;
 	if (y < maze_d.height - 1)
-		neighbors.bottom = i - maze_d.width;
+		neighbors.bottom = i + maze_d.width;
 	if (x > 0)
 		neighbors.left = i - 1;
 	return (neighbors);
