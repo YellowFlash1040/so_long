@@ -67,7 +67,7 @@ RED						:= \033[31m
 RESET   				:= \033[0m
 
 # Default Target
-all: $(NAME)
+all: $(LIB_MLX) $(NAME)
 
 # Build the Executable
 $(NAME): $(OBJ) $(LIBRARIES)
