@@ -24,6 +24,7 @@ LIB_CONVERTER_DIR		:= $(LIBS_DIR)/converter
 
 #Additional info
 MLX_ORIG_DIR_NAME		:= minilibx-linux
+MLX_LIB_NAME			:= libmlx.a
 
 # Includes
 INCLUDES				:= -I$(SRC_DIR) \
@@ -92,7 +93,7 @@ $(OBJ_DIR)/%.o: $(SRC_GUI_DIR)/%.c
 	@# echo "$(GREEN)Compiled $(notdir $@) successfully!$(RESET)"
 
 #Compile MLX
-$(MLX_LIB):
+$(LIB_MLX):
 	@rm -rf $(MLX_DIR)
 	@tar xf $(MLX_ARCHIVE) --transform='s/^$(MLX_ORIG_DIR_NAME)/$(MLX_DIR)/'
 	@cd $(MLX_DIR); ./configure > /dev/null 2>&1
