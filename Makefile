@@ -10,14 +10,17 @@ NAME					:= so_long
 # Directories
 SRC_DIR					:= src
 SRC_MAP_DIR				:= $(SRC_DIR)/map
+SRC_GUI_DIR				:= $(SRC_DIR)/gui
+SRC_SHARED_DIR			:= $(SRC_DIR)/shared
 OBJ_DIR					:= obj
-LIBS_DIR				:= libraries
 MLX_DIR 				:= mlx
+LIBS_DIR				:= libraries
 LIB_FILE_DIR			:= $(LIBS_DIR)/file
 LIB_FT_PRINTF_DIR		:= $(LIBS_DIR)/ft_printf
 LIB_GET_NEXT_LINE_DIR	:= $(LIBS_DIR)/get_next_line
 LIB_LIST_DIR			:= $(LIBS_DIR)/list
 LIB_STRING_DIR			:= $(LIBS_DIR)/ft_string
+LIB_CONVERTER_DIR		:= $(LIBS_DIR)/converter
 
 #Additional info
 MLX_ORIG_DIR_NAME		:= minilibx-linux
@@ -25,16 +28,19 @@ MLX_ORIG_DIR_NAME		:= minilibx-linux
 # Includes
 INCLUDES				:= -I$(SRC_DIR) \
 							-I$(SRC_MAP_DIR) \
+							-I$(SRC_GUI_DIR) \
+							-I$(SRC_SHARED_DIR) \
 							-I$(MLX_DIR) \
 							-I$(LIB_FILE_DIR) \
 							-I$(LIB_FT_PRINTF_DIR) \
 							-I$(LIB_GET_NEXT_LINE_DIR) \
 							-I$(LIB_LIST_DIR) \
 							-I$(LIB_STRING_DIR) \
+							-I$(LIB_CONVERTER_DIR)
 
 # Files
 MLX_ARCHIVE				:= mlx.tgz
-FILES					:= $(notdir $(wildcard $(SRC_DIR)/*.c)) $(notdir $(wildcard $(SRC_MAP_DIR)/*.c))
+FILES					:= $(notdir $(wildcard $(SRC_DIR)/*.c)) $(notdir $(wildcard $(SRC_MAP_DIR)/*.c)) $(notdir $(wildcard $(SRC_GUI_DIR)/*.c))
 
 # Objects, Libraries
 OBJ						:= $(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
@@ -45,12 +51,14 @@ LIB_FILE				:= $(LIB_FILE_DIR)/file.a
 LIB_FT_PRINTF			:= $(LIB_FT_PRINTF_DIR)/ft_printf.a
 LIB_GET_NEXT_LINE		:= $(LIB_GET_NEXT_LINE_DIR)/get_next_line.a
 LIB_LIST				:= $(LIB_LIST_DIR)/list.a
+LIB_CONVERTER			:= $(LIB_CONVERTER_DIR)/converter.a
 
 LIBRARIES				:= $(LIB_MLX) \
 							$(LIB_FILE) \
 							$(LIB_FT_PRINTF) \
 							$(LIB_GET_NEXT_LINE) \
-							$(LIB_LIST)
+							$(LIB_LIST) \
+							$(LIB_CONVERTER)
 
 # Colors for Output
 GREEN   				:= \033[0;32m
@@ -71,6 +79,10 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_MAP_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_GUI_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 

@@ -6,13 +6,15 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:25:59 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/12 13:12:49 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:34:00 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PATH_CHECKER_H
 # define PATH_CHECKER_H
 
+# include "dimension.h"
+# include "direction.h"
 # include "map.h"
 # include <stdbool.h>
 # include <stdlib.h>
@@ -24,12 +26,6 @@ typedef struct cell
 	bool			is_visited;
 	char			value;
 }					t_cell;
-
-typedef struct dimensions
-{
-	int				width;
-	int				height;
-}					t_dimensions;
 
 typedef struct maze
 {
@@ -44,14 +40,6 @@ typedef struct neighbors
 	int				left;
 	int				right;
 }					t_neighbors;
-
-typedef enum e_direction
-{
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT
-}					t_direction;
 
 typedef struct maze_data
 {
