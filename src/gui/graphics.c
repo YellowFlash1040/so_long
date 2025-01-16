@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:23:04 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/16 16:14:09 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:18:49 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,6 @@ static void	draw_sprite(t_client *user, t_image sprite, int x, int y)
 
 void	print_movements_count(t_data *data)
 {
-	// int	x;
-	// int	y;
-	// char	*message;
-	// char	*count_string;
-	// (void)data;
-	// count_string = ft_itoa(data->game->movements_count);
-	// message = ft_strjoin("Movements count: ", count_string);
-	// free(count_string);
-	// x = SPRITE_HEIGHT * 5 / 2;
-	// y = 10 + 5 * SPRITE_HEIGHT + 20;
-	// mlx_clear_window(data->user->display, data->user->window);
-	// mlx_string_put(data->user->display, data->user->window, x, y, 0xFFFFFF,
-	// 	message);
-	// free(message);
 	ft_printf("\033[H\033[JMovements count: %d\n", data->game->movements_count);
 }
 
