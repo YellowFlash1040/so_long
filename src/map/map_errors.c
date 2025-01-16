@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:30:09 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/12 13:49:29 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:17:17 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_map_errors	*init_map_errors(void)
 	map_errors->has_invalid_chars = false;
 	map_errors->has_minimum_dimensions = true;
 	map_errors->has_valid_cpe_amount = true;
+	map_errors->has_valid_path = true;
 	map_errors->is_a_rectangle = true;
 	return (map_errors);
 }
@@ -59,5 +60,7 @@ void	print_map_errors(t_map_errors *map_errors)
 		ft_printf("%s ❌\n", ERR_CPE_AMOUNT);
 	if (!map_errors->is_a_rectangle)
 		ft_printf("%s ❌\n", ERR_MAP_SHAPE);
+	if (!map_errors->has_valid_path)
+		ft_printf("%s ❌\n", ERR_INVALID_PATH);
 	ft_printf("\033[0m");
 }

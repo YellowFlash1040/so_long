@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 12:21:43 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/12 13:49:21 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:17:14 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct map_errors
 	bool		has_holes;
 	bool		is_a_rectangle;
 	bool		has_valid_cpe_amount;
+	bool		has_valid_path;
 	int			count;
 }				t_map_errors;
 
@@ -36,5 +37,6 @@ void			print_map_errors(t_map_errors *map_errors);
 # define ERR_MAP_SIZE "The map is too small"
 # define ERR_CPE_AMOUNT "The map must contain 1 E, at least 1 C, and 1 P"
 # define ERR_MAP_SHAPE "The map must be rectangular"
+# define ERR_INVALID_PATH "There is NO valid path in the map"
 
 #endif
