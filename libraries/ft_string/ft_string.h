@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:35:18 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/09 16:35:16 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:39:47 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int		last_index_of(char c, char *str);
 bool	ft_strcmp(char *s1, char *s2);
 char	*ft_strdup(char *str);
 void	replace(char *str, char old, char new);
+char	*ft_strjoin(char *s1, char *s2);
 
 #endif
