@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:15:04 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/14 15:36:27 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:15:25 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	process_map_file(char *filepath, t_map **map)
 	map_data = NULL;
 	status = parse_and_analyze_map(filepath, map, &map_data);
 	if (status != 0)
-		return (status);
+		return (free(map_data), status);
 	status = validate_map(*map, map_data);
 	free(map_data);
 	return (status);

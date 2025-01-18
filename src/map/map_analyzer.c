@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:34:35 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/12 14:13:53 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:07:57 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ static void	analyze_row(t_map_data *map_data, int row_index)
 	t_coordinates	cell;
 
 	row = map_data->map->rows[row_index];
-	if (row[0] == '0')
+	if (row[0] != '1')
 		map_data->is_surrouded_by_walls = false;
 	cell.y = row_index;
 	cell.x = -1;
 	while (row[++cell.x])
 		analyze_cell(map_data, cell);
-	if (row[cell.x - 1] == '0')
+	if (row[cell.x - 1] != '1')
 		map_data->is_surrouded_by_walls = false;
 	map = map_data->map;
 	if (cell.x != map->columns_count)
@@ -76,12 +76,22 @@ static void	analyze_cell(t_map_data *map_data, t_coordinates cell_p)
 static void	check_for_holes(t_map_data *map_data)
 {
 	t_map	*map;
+	int		i;
+	char	*roof;
+	char	*base;
 
 	if (!map_data->is_surrouded_by_walls)
 		return ;
 	map = map_data->map;
-	if (index_of('0', map->rows[0]) != -1)
-		map_data->is_surrouded_by_walls = false;
-	else if (index_of('0', map->rows[map->rows_count - 1]) != -1)
-		map_data->is_surrouded_by_walls = false;
+	roof = map->rows[0];
+	base = map->rows[map->rows_count - 1];
+	i = -1;
+	while (roof[++i] && base[i])
+	{
+		if (roof[i] != '1' || base[i] != '1')
+		{
+			map_data->is_surrouded_by_walls = false;
+			return ;
+		}
+	}
 }
