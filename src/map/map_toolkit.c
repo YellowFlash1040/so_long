@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:15:04 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/18 14:15:25 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/18 17:12:07 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,17 @@ int	process_map_file(char *filepath, t_map **map)
 static int	parse_and_analyze_map(char *filepath, t_map **map,
 		t_map_data **map_data)
 {
-	*map = parse_map(filepath);
-	if (!*map)
-		return (perror(""), MAP_INIT_ERROR);
+	int	parsing_result;
+
+	parsing_result = parse_map(filepath, map);
+	if (parsing_result != 0)
+	{
+		if (errno != EXIT_SUCCESS)
+			perror("");
+		else if (parsing_result == EMPTY_FILE_ERR)
+			print_failure(EMPTY_FILE_ERR_MSG);
+		return (parsing_result);
+	}
 	*map_data = analyze_map(*map);
 	if (!*map_data)
 		return (perror(""), MAP_DATA_INIT_ERROR);
@@ -64,13 +72,3 @@ static int	validate_map(t_map *map, t_map_data *map_data)
 	free(map_errors);
 	return (status);
 }
-
-// static void	print_failure(char *str)
-// {
-// 	ft_printf("\033[31mError\n%s ❌\n\033[0m", str);
-// }
-
-// static void	print_success(char *str)
-// {
-// 	ft_printf("\033[0;32m%s ✅\n\033[0m", str);
-// }

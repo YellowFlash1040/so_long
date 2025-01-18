@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:31:39 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/18 14:14:49 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/18 17:10:50 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argsc, char **args)
 		return (1);
 	}
 	filepath = args[1];
+	map = NULL;
 	processing_result = process_map_file(filepath, &map);
 	if (processing_result != 0)
 		return (free_map(&map), processing_result);

@@ -6,20 +6,16 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 18:00:27 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/10 13:44:12 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/18 17:01:07 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAP_PARSER_H
 # define MAP_PARSER_H
 
-# define MAP_EXTENSION ".ber"
-
-# define MAP_EXTENSION_ERROR "The map file must have a .ber extension. ❌"
-
 # include "file.h"
-# include "ft_printf.h"
 # include "map.h"
+# include "printer.h"
 # include <errno.h>
 # include <fcntl.h>
 # include <stdbool.h>
@@ -27,6 +23,15 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-t_map	*parse_map(char *filepath);
+# define MAP_EXTENSION ".ber"
+
+# define MAP_EXTENSION_ERR 10
+# define EMPTY_FILE_ERR 11
+# define MAP_INIT_ERROR 12
+
+# define MAP_EXTENSION_ERR_MSG "The map file must have a .ber extension"
+# define EMPTY_FILE_ERR_MSG "The map file is empty"
+
+int	parse_map(char *filepath, t_map **map_adr);
 
 #endif
