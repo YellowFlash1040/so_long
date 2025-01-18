@@ -60,6 +60,7 @@ FILES					:= map.c \
 							game_data.c \
 							graphics.c \
 							movements.c \
+							printer.c \
 							main.c
 
 # Objects, Libraries
@@ -103,6 +104,10 @@ $(OBJ_DIR)/%.o: $(SRC_MAP_DIR)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_GUI_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_SHARED_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
