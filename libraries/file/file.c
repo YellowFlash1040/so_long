@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:37:24 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/12 13:56:41 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/18 17:00:43 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ char	**read_all_lines(char *filepath, int *lines_count)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	if (*lines_count < 1)
+		return (clear_list(&lines), NULL);
 	return (move_from_list_to_array(lines, *lines_count));
 }
 
