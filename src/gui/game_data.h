@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:27:39 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/16 16:02:52 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/19 17:09:05 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,9 @@
 # define GAME_DATA_H
 
 # include "map.h"
+# include "point.h"
 # include <stdbool.h>
 # include <stdlib.h>
-
-typedef struct point
-{
-	int		x;
-	int		y;
-}			t_point;
 
 typedef struct game_data
 {

@@ -61,6 +61,7 @@ FILES					:= map.c \
 							graphics.c \
 							movements.c \
 							printer.c \
+							image.c \
 							main.c
 
 # Objects, Libraries

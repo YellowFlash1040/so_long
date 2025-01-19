@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:54:17 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/16 17:04:33 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/19 17:09:38 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "ft_string.h"
 # include "image.h"
 # include "mlx.h"
+# include "point.h"
 # include "sprite.h"
 # include <stdlib.h>
 
