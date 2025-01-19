@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:23:04 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/16 18:18:49 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:17:36 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	print_movements_count(t_data *data)
 	ft_printf("\033[H\033[JMovements count: %d\n", data->game->movements_count);
 }
 
-void	update_player_position(t_data *data)
+void	update_graphic_player_position(t_data *data)
 {
 	t_image	player;
 	t_image	ground;

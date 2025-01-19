@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:54:23 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/16 16:38:31 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:17:47 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	render(t_data *data)
 
 	if (is_player_position_changed(data->game))
 	{
-		update_player_position(data);
+		update_graphic_player_position(data);
 		data->game->old_player_position = data->game->player_position;
 		print_movements_count(data);
 		if (data->game->game_over)

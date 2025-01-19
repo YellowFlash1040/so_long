@@ -6,7 +6,7 @@
 /*   By: akovtune <akovtune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:22:30 by akovtune          #+#    #+#             */
-/*   Updated: 2025/01/16 16:14:20 by akovtune         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:17:39 by akovtune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 
 void	draw_map(t_data *data);
 void	print_movements_count(t_data *data);
-void	update_player_position(t_data *data);
+void	update_graphic_player_position(t_data *data);
 
 #endif
