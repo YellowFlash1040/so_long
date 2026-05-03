@@ -16,7 +16,7 @@ t_image_data	*init_image_data(void)
 {
 	t_image_data	*image_data;
 
-	image_data = (t_image_data *)malloc(sizeof(image_data));
+	image_data = (t_image_data *)malloc(sizeof(*image_data));
 	if (!image_data)
 		return (NULL);
 	image_data->pixels = NULL;
