@@ -45,7 +45,7 @@ Run the game with a map file as an argument:
 ./so_long maps/classic.ber
 ```
 
-- **Arrow keys / WASD**: Move the player
+- **Arrow keys**: Move the player
 - **ESC / Close window**: Quit the game
 
 Maps must be in `.ber` format and follow the game rules: surrounded by walls, contain a player start position, collectible items, and an exit.
