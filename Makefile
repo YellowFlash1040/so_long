@@ -101,8 +101,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) Makefile
 $(LIB_MLX):
 	@rm -rf $(MLX_DIR)
 	@tar xf $(MLX_ARCHIVE) --transform='s/^$(MLX_ORIG_DIR_NAME)/$(MLX_DIR)/'
-	# cd $(MLX_DIR); ./configure > /dev/null 2>&1
-	cd $(MLX_DIR); ./configure
+	@cd $(MLX_DIR); ./configure
 	@$(MAKE) -C $(MLX_DIR)
 	echo "$(GREEN)Compiled $(MLX_LIB_NAME) successfully!$(RESET)"
 
