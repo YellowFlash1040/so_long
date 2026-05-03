@@ -25,7 +25,7 @@ sudo apt update && sudo apt install make libx11-dev libxext-dev gcc libbsd-dev
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/YellowFlash1040/so_long.git
+git clone https://github.com/YellowFlash1040/so_long
 cd so_long
 ```
 
