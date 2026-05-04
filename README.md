@@ -5,6 +5,10 @@ where the player navigates through a map collecting items and reaching the exit.
 
 This project is part of the [Codam](https://www.codam.nl/en/) curriculum, [42 School](https://42.fr/en/homepage/) campus, and demonstrates proficiency in C programming, using graphics libraries, and handling user input.
 
+<p align="center">
+<img src="assets/preview.png" alt="so_long preview" />
+</p>
+
 ## Prerequisites:
 
 Before building the project, ensure you have the following installed:
